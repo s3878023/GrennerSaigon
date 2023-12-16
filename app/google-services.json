@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "361596740632",
+    "project_id": "greenersaigon-6df6b",
+    "storage_bucket": "greenersaigon-6df6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361596740632:android:9b29981eee5e83a8e18f6d",
+        "android_client_info": {
+          "package_name": "com.example.grennersaigon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdqfzsQrKmLGJqjof7H7KhmvJ2Txr7om4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

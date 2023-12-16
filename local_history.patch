@@ -1,0 +1,17 @@
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	
++++ b/app/build.gradle.kts	(date 1702647100081)
+@@ -35,7 +35,7 @@
+ dependencies {
+ 
+     implementation("androidx.appcompat:appcompat:1.6.1")
+-    implementation("com.google.android.material:material:1.10.0")
++    implementation("com.google.android.material:material:1.11.0")
+     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+     implementation("com.google.firebase:firebase-auth:22.3.0")
+     testImplementation("junit:junit:4.13.2")
