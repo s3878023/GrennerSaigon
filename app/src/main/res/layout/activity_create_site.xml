@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Form Fields -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/editTextSiteName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Site Name"/>
+
+            <EditText
+                android:id="@+id/editTextSiteDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Site Description"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/editTextSiteAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Site Address"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/buttonPinLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pin Location"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Map with Pin Functionality -->
+    <FrameLayout
+        android:id="@+id/mapFrame"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/scrollView"
+        android:layout_marginTop="16dp">
+
+        <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+</RelativeLayout>
