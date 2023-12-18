@@ -43,10 +43,18 @@
                 android:layout_height="wrap_content"
                 android:text="Pin Location"
                 android:layout_marginTop="16dp"/>
+
+            <!-- New Button to Check Address -->
+            <Button
+                android:id="@+id/buttonCheckAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Address"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
     </ScrollView>
 
-    <!-- Map with Pin Functionality -->
+    <!-- Map with Pin and Check Functionality -->
     <FrameLayout
         android:id="@+id/mapFrame"
         android:layout_width="match_parent"

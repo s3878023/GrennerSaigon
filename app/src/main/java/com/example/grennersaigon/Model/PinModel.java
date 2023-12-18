@@ -8,6 +8,8 @@ public class PinModel {
     private String siteAddress;
     private GeoPoint position;
 
+    private String siteOwner;
+
     public PinModel() {
         // Default constructor required for Firestore
     }
