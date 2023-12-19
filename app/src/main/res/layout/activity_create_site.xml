@@ -35,22 +35,6 @@
                 android:hint="Site Address"
                 android:layout_marginTop="8dp"/>
 
-            <Button
-                android:id="@+id/buttonCheckAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Locate Address"
-                android:layout_marginTop="8dp"/>
-
-            <Button
-                android:id="@+id/buttonPinLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create Site"
-                android:layout_marginTop="16dp"/>
-
-
-
             <FrameLayout
                 android:id="@+id/mapFrame"
                 android:layout_width="match_parent"
@@ -65,6 +49,26 @@
                     android:layout_height="match_parent"/>
 
             </FrameLayout>
+
+            <Button
+                android:id="@+id/buttonCheckAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locate Address"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/buttonSelectDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Date and Time"/>
+
+            <Button
+                android:id="@+id/buttonPinLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Site"
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
     </ScrollView>
 

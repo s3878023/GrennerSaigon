@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -54,12 +55,17 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
         //change to detail view
         mMap.setOnMarkerClickListener(marker -> {
             String pinName = marker.getTitle();
-            Intent intent = new Intent(joinSite.this, PinDetailsActivity.class);
-            intent.putExtra("pinName", pinName);
-            startActivity(intent);
+            String documentId = marker.getSnippet(); // Get the document ID from marker's snippet
+            new Handler().postDelayed(() -> {
+                Intent intent = new Intent(joinSite.this, PinDetailsActivity.class);
+                intent.putExtra("pinName", pinName);
+                intent.putExtra("documentId", documentId); // Pass the document ID to PinDetailsActivity
+                startActivity(intent);
+            }, 2000);
+
             return false;
         });
-        
+
     }
     public Bitmap resizeBitmap(String drawableName, int width, int height){
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getPackageName()));
@@ -91,13 +97,13 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
                                 // Set marker color based on membership
                                 if (isMember) {
                                     mMap.addMarker(new MarkerOptions().position(pinLatLng).title(pin.getSiteName())
-                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("joined",150,150))));
+                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("joined",150,150))).snippet(document.getId()));
                                 } else if (pin.getSiteOwner() != null && pin.getSiteOwner().equals(getCurrentUserId())) {
                                     mMap.addMarker(new MarkerOptions().position(pinLatLng).title(pin.getSiteName())
-                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("mypin",150,150))));
+                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("mypin",150,150))).snippet(document.getId()));
                                 } else {
                                     mMap.addMarker(new MarkerOptions().position(pinLatLng).title(pin.getSiteName())
-                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("notjoin",150,150))));
+                                            .icon(BitmapDescriptorFactory.fromBitmap(resizeBitmap("notjoin",150,150))).snippet(document.getId()));
                                 }
 
                                 boundsBuilder.include(pinLatLng);
