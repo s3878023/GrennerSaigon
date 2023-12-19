@@ -188,7 +188,7 @@ public class UserUpdate extends AppCompatActivity {
                 if (!name.isEmpty() && !age.isEmpty() && !address.isEmpty()) {
                     ArrayList<String> ownSite = new ArrayList<>();
                     ArrayList<String> joinSite = new ArrayList<>();
-                    User user = new User(name, age, address, userId, ownSite, joinSite);
+                    User user = new User(name, age, address, userId);
                     saveInformationToFirestore(user);
 
                     Intent intent = new Intent(UserUpdate.this, MainActivity.class);

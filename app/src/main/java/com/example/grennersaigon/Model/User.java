@@ -16,13 +16,11 @@ public class User {
     // Default constructor required for Firestore
     public User() {}
 
-    public User(String name, String age, String address, String userId, ArrayList<String> ownSite, ArrayList<String> joinSite) {
+    public User(String name, String age, String address, String userId) {
         this.name = name;
         this.age = age;
         this.address = address;
         this.userId = userId;
-        this.ownSite = ownSite;
-        this.joinSite = joinSite;
     }
 
     // Getter methods (required for Firestore)
