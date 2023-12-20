@@ -61,7 +61,6 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
 
             return false;
         });
-
     }
     public Bitmap resizeBitmap(String drawableName, int width, int height){
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(),getResources().getIdentifier(drawableName, "drawable", getPackageName()));

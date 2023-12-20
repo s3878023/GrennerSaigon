@@ -55,4 +55,12 @@ public class PinModel {
     public Date getDateTime() {
         return dateTime;
     }
+
+    public String getSiteReport() {
+        return siteReport;
+    }
+
+    public void setSiteReport(String siteReport) {
+        this.siteReport = siteReport;
+    }
 }

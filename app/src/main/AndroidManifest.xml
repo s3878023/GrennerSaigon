@@ -16,14 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GrennerSaigon"
         tools:targetApi="31">
+        <activity
+            android:name=".Activity.AdminActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDs_tRR3_sTZOk8ZuVLYYs-cgTS1I2YX84" />
 
-        <activity android:name=".Map.PinDetailsActivity"
-            android:exported="false"/>
-
+        <activity
+            android:name=".Map.PinDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".Map.joinSite"
             android:exported="false"
