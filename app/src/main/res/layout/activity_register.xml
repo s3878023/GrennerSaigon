@@ -8,7 +8,13 @@
     android:gravity="center"
     android:padding="20dp"
     tools:context=".authenticate.Register">
-
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="16dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:src="@drawable/earth" />
     <TextView
         android:text="@string/register"
         android:layout_width="match_parent"
@@ -46,6 +52,8 @@
     <Button
         android:id="@+id/register_btn"
         android:text="Register"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

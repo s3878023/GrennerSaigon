@@ -55,18 +55,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Locate Address"
+                android:backgroundTint="@android:color/holo_green_light"
                 android:layout_marginTop="8dp"/>
 
             <Button
                 android:id="@+id/buttonSelectDateTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_green_light"
                 android:text="Select Date and Time"/>
 
             <Button
                 android:id="@+id/buttonPinLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_green_light"
                 android:text="Create Site"
                 android:layout_marginTop="16dp"/>
         </LinearLayout>

@@ -10,13 +10,12 @@
     tools:context=".Activity.MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/planetearth"
-        android:scaleType="fitCenter"
+        android:layout_width="373dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="16dp"
         android:paddingTop="40dp"
-        android:paddingBottom="80dp"
-        android:layout_marginBottom="16dp"/>
+        android:paddingBottom="40dp"
+        android:src="@drawable/earth" />
 
     <Button
         android:id="@+id/buttonUpdateUser"
@@ -34,7 +33,7 @@
         android:text="Join A Site"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@android:color/holo_green_light"/> <!-- Set greenish color here -->
+        android:backgroundTint="@android:color/holo_green_light"/>
 
     <Button
         android:id="@+id/buttonCreateSite"
@@ -43,7 +42,7 @@
         android:text="Create Your Site"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@android:color/holo_green_light"/> <!-- Set greenish color here -->
+        android:backgroundTint="@android:color/holo_green_light"/>
 
     <Button
         android:id="@+id/logout"
@@ -51,6 +50,6 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_light"/> <!-- Set greenish color here -->
+        android:backgroundTint="@android:color/holo_green_light"/>
 
 </LinearLayout>
