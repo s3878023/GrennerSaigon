@@ -15,11 +15,12 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/earth"
+            android:src="@drawable/planetearth"
             android:scaleType="fitCenter"
             android:paddingTop="40dp"
             android:paddingBottom="40dp"
             android:layout_marginBottom="16dp"/>
+
         <TextView
             android:id="@+id/pinNameTextView"
             android:layout_width="wrap_content"
@@ -47,11 +48,21 @@
             android:text="Description"
             android:textSize="20sp"/>
 
+
+        <TextView
+            android:id="@+id/siteReportTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteDescriptionTextView"
+            android:layout_marginTop="8dp"
+            android:text="Report"
+            android:textSize="20sp"/>
+
         <TextView
             android:id="@+id/dateTimeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/siteDescriptionTextView"
+            android:layout_below="@id/siteReportTextView"
             android:layout_marginTop="8dp"
             android:text="Date and Time"
             android:textSize="20sp"/>
@@ -105,8 +116,8 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ListView
-            android:id="@+id/siteMembersListView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/siteMembersRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/siteMembersTitleTextView"

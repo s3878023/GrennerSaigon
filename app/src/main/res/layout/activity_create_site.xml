@@ -34,6 +34,12 @@
                 android:layout_height="wrap_content"
                 android:hint="Site Address"
                 android:layout_marginTop="8dp"/>
+            <EditText
+                android:id="@+id/editTextSiteReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Site Report"
+                android:layout_marginTop="8dp"/>
 
             <FrameLayout
                 android:id="@+id/mapFrame"

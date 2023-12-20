@@ -36,7 +36,7 @@ import java.util.Locale;
 
 public class CreateSite extends AppCompatActivity implements OnMapReadyCallback {
 
-    private EditText editTextSiteName, editTextSiteDescription, editTextSiteAddress;
+    private EditText editTextSiteName, editTextSiteDescription, editTextSiteAddress, editTextSiteReport;
     private Button buttonPinLocation, buttonCheckAddress;
     private GoogleMap googleMap;
     private FirebaseFirestore db;
@@ -52,6 +52,7 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
         editTextSiteName = findViewById(R.id.editTextSiteName);
         editTextSiteDescription = findViewById(R.id.editTextSiteDescription);
         editTextSiteAddress = findViewById(R.id.editTextSiteAddress);
+        editTextSiteReport = findViewById(R.id.editTextSiteReport);
         buttonPinLocation = findViewById(R.id.buttonPinLocation);
         buttonCheckAddress = findViewById(R.id.buttonCheckAddress);
 
@@ -139,7 +140,8 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
                         currentUser.getUid(),
                         new GeoPoint(location.latitude, location.longitude),
                         selectedDate,
-                        siteMembers
+                        siteMembers,
+                        editTextSiteReport.getText().toString()
                 );
             } else {
                 showToast("Could not find location for the provided address.");
@@ -185,9 +187,9 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
         return null;
     }
 
-    private void saveSiteInformation(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers) {
+    private void saveSiteInformation(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers, String siteReport) {
         db.collection("pins").document()
-                .set(new PinModel(siteName, siteDescription, siteAddress, siteOwner, position, dateTime, siteMembers))
+                .set(new PinModel(siteName, siteDescription, siteAddress, siteOwner, position, dateTime, siteMembers, siteReport))
                 .addOnSuccessListener(documentReference -> showToast("Site information saved successfully"))
                 .addOnFailureListener(e -> showToast("Failed to save site information: " + e.getMessage()));
     }

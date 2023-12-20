@@ -9,15 +9,15 @@ public class PinModel {
     private String siteName;
     private String siteDescription;
     private String siteAddress;
-    private String siteOwner; // New field
+    private String siteOwner;
     private GeoPoint position;
     private ArrayList<String> siteMembers;
-    private Date dateTime; // New field
-
+    private Date dateTime;
+    private String siteReport;
     public PinModel() {
     }
 
-    public PinModel(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers) {
+    public PinModel(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers, String siteReport) {
         this.siteName = siteName;
         this.siteDescription = siteDescription;
         this.siteAddress = siteAddress;
@@ -25,6 +25,7 @@ public class PinModel {
         this.position = position;
         this.dateTime = dateTime;
         this.siteMembers = siteMembers;
+        this.siteReport = siteReport;
     }
 
     public String getSiteName() {
