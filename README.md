@@ -1,164 +1,101 @@
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.TextView;
-//
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
-//
-//import org.w3c.dom.Text;
-//
-//public class MainActivity extends AppCompatActivity {
-//
-//    FirebaseAuth auth;
-//    Button button;
-//    TextView textView;
-//    FirebaseUser user;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        auth = FirebaseAuth.getInstance();
-//        button = findViewById(R.id.logout);
-//        textView = findViewById(R.id.user_details);
-//        user = auth.getCurrentUser();
-//
-//        if (user == null) {
-//            Intent intent = new Intent(getApplicationContext(), Login.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//        else {
-//            textView.setText(user.getEmail());
-//        }
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseAuth.getInstance().signOut();
-//            }
-//        });
-//    }
-//}
-//--------------------------TEST CODE------------------------////////
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import androidx.annotation.NonNull;
-//import androidx.appcompat.app.AppCompatActivity;
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.firestore.FirebaseFirestore;
-//
-//public class MainActivity extends AppCompatActivity {
-//
-//    FirebaseAuth auth;
-//    Button buttonLogout, buttonSubmit;
-//    EditText editTextName, editTextAge, editTextAddress;
-//    FirebaseUser user;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        auth = FirebaseAuth.getInstance();
-//        user = auth.getCurrentUser();
-//
-//        if (user == null) {
-//            Intent intent = new Intent(getApplicationContext(), Login.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//
-//        editTextName = findViewById(R.id.editTextName);
-//        editTextAge = findViewById(R.id.editTextAge);
-//        editTextAddress = findViewById(R.id.editTextAddress);
-//        buttonLogout = findViewById(R.id.logout);
-//        buttonSubmit = findViewById(R.id.buttonSubmit);
-//
-//        if (user != null) {
-//            // Assuming you have a TextView with id textView in your layout
-//            // textView.setText(userEmail);
-//        }
-//
-//        buttonLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseAuth.getInstance().signOut();
-//                Intent intent = new Intent(getApplicationContext(), Login.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//
-//        buttonSubmit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String name = editTextName.getText().toString().trim();
-//                String age = editTextAge.getText().toString().trim();
-//                String address = editTextAddress.getText().toString().trim();
-//
-//                if (!name.isEmpty() && !age.isEmpty() && !address.isEmpty()) {
-//                    // Create a data object
-//                    Information information = new Information(name, age, address);
-//
-//                    // Save data to Firestore
-//                    saveInformationToFirestore(information);
-//                } else {
-//                    // Handle empty fields
-//                    // You may want to display an error message
-//                }
-//            }
-//        });
-//    }
-//
-////    private void saveInformationToFirestore(Information information) {
-////        // Get the current user's ID
-////        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-////
-////        // Add the user ID to the Information object
-////        information.setUserId(userId);
-////        FirebaseFirestore db = FirebaseFirestore.getInstance();
-////        db.collection("informationList")
-////                .add(information)
-////                .addOnSuccessListener(documentReference -> {
-////                    // Document added successfully
-////                    editTextName.setText("");
-////                    editTextAge.setText("");
-////                    editTextAddress.setText("");
-////                })
-////                .addOnFailureListener(e -> {
-////
-////                });
-////    }
-//    private void saveInformationToFirestore(Information information) {
-//    // Get the current user's ID
-//        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//
-//        // Set the user ID in the Information object
-//        information.setUserId(userId);
-//
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//        db.collection("informationList")
-//                .add(information)
-//                .addOnSuccessListener(documentReference -> {
-//                    // Document added successfully
-//                    editTextName.setText("");
-//                    editTextAge.setText("");
-//                    editTextAddress.setText("");
-//                })
-//                .addOnFailureListener(e -> {
-//                    // Handle errors
-//                    // You may want to show an error message
-//                });
-//    }
-//}
+Project Name
+Description
+This Android app utilizes Firebase tools, including Firestore for database operations and Firebase Authentication for user management. The app allows users to store and retrieve data, benefiting from the efficiency and helpful features offered by Firebase services.
+
+Features
+Firestore Database Integration: The app uses Firestore to store and retrieve data in a flexible and scalable manner. Firestore provides real-time updates, offline support, and a powerful querying system.
+
+Firebase Authentication: User authentication is handled through Firebase Authentication, ensuring secure access to app features. This feature includes multiple authentication methods like email/password, Google Sign-In, etc., providing flexibility for users.
+
+Getting Started
+Prerequisites
+Android Studio installed
+Firebase Project set up
+Installation
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/your-username/your-repository.git
+Open the project in Android Studio.
+
+Set up Firebase in your project by following the instructions in the Firebase documentation.
+
+Enable Firebase Authentication methods and set up Firestore in the Firebase Console.
+
+Configuration
+Update the google-services.json file with your Firebase project configuration.
+
+Ensure the necessary dependencies are added to your build.gradle file.
+
+gradle
+Copy code
+implementation 'com.google.firebase:firebase-auth:22.0.0'
+implementation 'com.google.firebase:firebase-firestore:24.0.0'
+Usage
+Firebase Authentication:
+
+Integrate Firebase Authentication in your app using the provided authentication methods. Example:
+
+java
+Copy code
+// Code snippet for Firebase Email/Password authentication
+FirebaseAuth mAuth = FirebaseAuth.getInstance();
+mAuth.createUserWithEmailAndPassword(email, password)
+       .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+           @Override
+           public void onComplete(@NonNull Task<AuthResult> task) {
+               if (task.isSuccessful()) {
+                   // User creation success
+               } else {
+                   // User creation failed
+               }
+           }
+       });
+Firestore Database:
+
+Save data to Firestore:
+
+java
+Copy code
+// Code snippet for writing data to Firestore
+FirebaseFirestore db = FirebaseFirestore.getInstance();
+Map<String, Object> userData = new HashMap<>();
+userData.put("username", "JohnDoe");
+userData.put("email", "john.doe@example.com");
+
+db.collection("users")
+       .add(userData)
+       .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+           @Override
+           public void onSuccess(DocumentReference documentReference) {
+               // Document added with ID: documentReference.getId()
+           }
+       })
+       .addOnFailureListener(new OnFailureListener() {
+           @Override
+           public void onFailure(@NonNull Exception e) {
+               // Error adding document
+           }
+       });
+Retrieve data from Firestore:
+
+java
+Copy code
+// Code snippet for reading data from Firestore
+FirebaseFirestore db = FirebaseFirestore.getInstance();
+db.collection("users")
+       .whereEqualTo("username", "JohnDoe")
+       .get()
+       .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<QuerySnapshot> task) {
+               if (task.isSuccessful()) {
+                   for (QueryDocumentSnapshot document : task.getResult()) {
+                       // Handle data from the document
+                   }
+               } else {
+                   // Handle task failure
+               }
+           }
+       });
