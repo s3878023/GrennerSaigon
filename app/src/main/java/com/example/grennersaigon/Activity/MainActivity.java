@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.grennersaigon.Map.CreateSite;
-import com.example.grennersaigon.Map.MapsActivity;
+import com.example.grennersaigon.Map.joinSite;
 import com.example.grennersaigon.R;
 import com.example.grennersaigon.authenticate.Login;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                Intent intent = new Intent(MainActivity.this, joinSite.class);
                 startActivity(intent);
             }
         });

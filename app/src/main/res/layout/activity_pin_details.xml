@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".Map.PinDetailsActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/planetearth"
+            android:scaleType="fitCenter"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/pinNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pin Name"
+            android:layout_below="@id/logo"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/siteAddressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pinNameTextView"
+            android:layout_marginTop="8dp"
+            android:text="Address"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/siteDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteAddressTextView"
+            android:layout_marginTop="8dp"
+            android:text="Description"
+            android:textSize="20sp"/>
+
+
+        <TextView
+            android:id="@+id/siteReportTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteDescriptionTextView"
+            android:layout_marginTop="8dp"
+            android:text="Report"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteReportTextView"
+            android:layout_marginTop="8dp"
+            android:text="Date and Time"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/siteOwnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateTimeTextView"
+            android:layout_marginTop="8dp"
+            android:text="Owner"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/editPinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteOwnerTextView"
+            android:layout_marginTop="16dp"
+            android:text="Edit Site"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/deletePinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editPinButton"
+            android:layout_marginTop="8dp"
+            android:text="Delete Site"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/joinSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/deletePinButton"
+            android:layout_marginTop="8dp"
+            android:text="Join Site"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/siteMembersTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/joinSite"
+            android:layout_marginTop="16dp"
+            android:text="Site Members"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/siteMembersRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/siteMembersTitleTextView"
+            android:layout_marginTop="16dp" />
+    </RelativeLayout>
+
+</ScrollView>
