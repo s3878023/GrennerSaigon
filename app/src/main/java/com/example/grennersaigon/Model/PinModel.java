@@ -17,13 +17,14 @@ public class PinModel {
     public PinModel() {
     }
 
-    public PinModel(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime) {
+    public PinModel(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers) {
         this.siteName = siteName;
         this.siteDescription = siteDescription;
         this.siteAddress = siteAddress;
         this.siteOwner = siteOwner;
         this.position = position;
         this.dateTime = dateTime;
+        this.siteMembers = siteMembers;
     }
 
     public String getSiteName() {

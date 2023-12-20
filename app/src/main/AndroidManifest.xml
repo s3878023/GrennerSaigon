@@ -22,7 +22,7 @@
             android:value="AIzaSyDs_tRR3_sTZOk8ZuVLYYs-cgTS1I2YX84" />
 
         <activity android:name=".Map.PinDetailsActivity"
-            android:exported="true"/>
+            android:exported="false"/>
 
         <activity
             android:name=".Map.joinSite"

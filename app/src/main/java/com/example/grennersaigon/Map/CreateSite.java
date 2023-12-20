@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -85,7 +86,6 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
         });
     }
     private void showDateTimePicker() {
-        // Create a DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, year, monthOfYear, dayOfMonth) -> {
@@ -118,9 +118,9 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
         showToast("Selected Date and Time: " + selectedDate.toString());
     }
 
-
     private void pinLocationAndPushToFirebase() {
         String address = editTextSiteAddress.getText().toString().trim();
+        ArrayList<String> siteMembers = new ArrayList<>();
 
         if (!address.isEmpty()) {
             LatLng location = geocodeAddress(address);
@@ -130,17 +130,16 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
                 googleMap.addMarker(new MarkerOptions().position(location).title("Pinned Location"));
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15.0f));
 
-                // Get the selected date and time from selectedDateTime
                 Date selectedDate = selectedDateTime.getTime();
 
-                // Save the site information to Firestore with date and time
                 saveSiteInformation(
                         editTextSiteName.getText().toString(),
                         editTextSiteDescription.getText().toString(),
                         address,
-                        currentUser.getUid(), // User ID
+                        currentUser.getUid(),
                         new GeoPoint(location.latitude, location.longitude),
-                        selectedDate
+                        selectedDate,
+                        siteMembers
                 );
             } else {
                 showToast("Could not find location for the provided address.");
@@ -149,6 +148,8 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
             showToast("Please enter an address.");
         }
     }
+
+
 
 
     private void checkAddressAndShowOnMap() {
@@ -184,15 +185,12 @@ public class CreateSite extends AppCompatActivity implements OnMapReadyCallback 
         return null;
     }
 
-    private void saveSiteInformation(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime) {
-        // Save the site information to Firestore
+    private void saveSiteInformation(String siteName, String siteDescription, String siteAddress, String siteOwner, GeoPoint position, Date dateTime, ArrayList<String> siteMembers) {
         db.collection("pins").document()
-                .set(new PinModel(siteName, siteDescription, siteAddress, siteOwner, position, dateTime))
+                .set(new PinModel(siteName, siteDescription, siteAddress, siteOwner, position, dateTime, siteMembers))
                 .addOnSuccessListener(documentReference -> showToast("Site information saved successfully"))
                 .addOnFailureListener(e -> showToast("Failed to save site information: " + e.getMessage()));
     }
-
-
     private void showToast(String message) {
         Context context = getApplicationContext();
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();

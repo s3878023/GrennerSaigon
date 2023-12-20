@@ -36,11 +36,8 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         com.example.grennersaigon.databinding.ActivityMapsBinding binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -52,14 +49,13 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        //change to detail view
         mMap.setOnMarkerClickListener(marker -> {
             String pinName = marker.getTitle();
-            String documentId = marker.getSnippet(); // Get the document ID from marker's snippet
+            String documentId = marker.getSnippet();
             new Handler().postDelayed(() -> {
                 Intent intent = new Intent(joinSite.this, PinDetailsActivity.class);
                 intent.putExtra("pinName", pinName);
-                intent.putExtra("documentId", documentId); // Pass the document ID to PinDetailsActivity
+                intent.putExtra("documentId", documentId);
                 startActivity(intent);
             }, 2000);
 
@@ -110,8 +106,6 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
                             }
                         }
                     }
-
-                    // Move the camera to include all pins
                     LatLngBounds bounds = boundsBuilder.build();
                     mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
                 }
@@ -121,8 +115,6 @@ public class joinSite extends FragmentActivity implements OnMapReadyCallback {
             }
         });
     }
-
-
     private String getCurrentUserId() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
